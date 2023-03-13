@@ -5,7 +5,7 @@ import {Stack} from '@mui/material'
 import {Link} from 'react-router-dom'
 import {logo} from '../utils/constants'
 
-// Again, on ctrl + double clicking a component that is used , it'll be automatically imported
+// Again, on ctrl + space on the selected component that is used , it'll be automatically imported
 import SearchBar from './SearchBar'
 
 
@@ -28,7 +28,7 @@ const Navbar = () => (
     >
 
       <Link to='/' style={{display: 'flex', alignItems: 'center'}} > 
-        {/* LOOK AT using height for img */}
+        {/* OBSERSVE usage of HEIGHT for img */}
         <img src={logo} alt="logo" height={45}/>
       </Link>
       <SearchBar />
