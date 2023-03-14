@@ -3,7 +3,7 @@
 
 import {useState , useEffect} from 'react'
 import {Box, Stack, Typography} from '@mui/material'
-import Sidebar from './Sidebar'
+import {Sidebar,Vedios} from './'
 
 
 /*
@@ -12,14 +12,14 @@ flexDirection: {
   md: 'row'
 }
 this makes the Stack to be displayed row-wise normally ()
-AND on medium (md) screen, it'll be displayed in ONE COLUMN 
+AND on medium (md) screen OR HIGHER, it'll be displayed in ONE COLUMN 
 
 i.e on mobiles all vedio are one after other , 
 on desktop there will be a row with 3 vedios
 */
 
 /*
-if you want to understand more about the styling , changin to this layout makes it more readable
+if you want to understand more about the styling ,j changin to this layout makes it more readable
 <Box 
         sx={{
         height: {
@@ -40,7 +40,7 @@ const Feed = () => {
       {/* This box is just like a div , it creates the grey divider 
       between the sidebar and main vedio feed*/}
       <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "1px solid #3d3d3d", px: { sx: 0, md: 2 } }}>
-        <Sidebarebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+        <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
         
         {/* Typography is just a component for all text element - p , h1 .. h6  , etc */}
         <Typography className="copyright" variant="body2" sx={{ mt: 1.5, color: "#fff", }}>
@@ -51,10 +51,14 @@ const Feed = () => {
 
       <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
         <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
+          {/* Displaying New vedios or Coding vedios etc */}
           {selectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
         </Typography>
 
+        < Vedios vedios={[]} />
+
       </Box>
+
     </Stack>
   )
 }

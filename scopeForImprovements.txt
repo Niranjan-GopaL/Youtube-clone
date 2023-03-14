@@ -1,0 +1,1 @@
+-> The categories in the sidebar are CONSTANT and NOT dependent on user prefernces.

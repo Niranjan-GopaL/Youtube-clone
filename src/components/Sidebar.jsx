@@ -7,10 +7,14 @@ import { categories } from "../utils/constants";
 
 const Categories = ({ selectedCategory, setSelectedCategory }) => (
     <Stack direction="row" sx={{overflowY: "auto",height: { sx: "auto", md: "95%" },flexDirection: { md: "column" },}}>
+        {/* mapping over each category in categories such that */}
+        {/* map RETURNS a BUTTON for each category */}
+        {/* just 2 spans inside button (one for icon another for name) */}
         {categories.map((category) => (
+        //the color of the button has to be dynamic
         <button
             className="category-btn"
-            onClick={() => setSelectedCategory(category.name)}
+            onClick={() => setSelectedCategory(category.name)}  
             style={{background: category.name === selectedCategory && "#FC1503",color: "white",}}
             key={category.name}>
 
@@ -21,12 +25,21 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => (
         <span style={{ opacity: category.name === selectedCategory ? "1" : "0.8" }}>
           {category.name}
         </span>
-        
+
         </button>
     ))}
     </Stack>
 )
 
+/*
+basic structure
+{category.map((category) => (
+    <button>
+        <span>{category.icon}</span>
+        <span>{category.name}</span>
+    </button>
+))}
+*/
 
 
 export default Categories
