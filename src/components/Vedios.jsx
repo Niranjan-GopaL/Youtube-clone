@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Vedios = () => {
+const Vedios = ({vedios}) => {
+  console.log(vedios);
   return (
     <div>
-      
+      Vedios
     </div>
   )
 }

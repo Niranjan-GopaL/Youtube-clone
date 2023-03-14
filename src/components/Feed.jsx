@@ -3,8 +3,10 @@
 
 import {useState , useEffect} from 'react'
 import {Box, Stack, Typography} from '@mui/material'
-import {Sidebar,Vedios} from './'
 
+
+import {Sidebar,Vedios} from './'
+import { fetchFromAPI } from '../utils/fethcFromAPI'
 
 /*
 flexDirection: {
@@ -33,6 +35,21 @@ if you want to understand more about the styling ,j changin to this layout makes
 */
 
 const Feed = () => {
+
+  // const [feed, setFeed] = useState([]); how to use useState()
+  const [SelectedCategory, setSelectedCategory ] = useState('New');
+  const [ vedios , SetVedios ] = useState([]);
+
+
+  // useEffect is a live cycle hook that will run everytime the component is re-rendered. ( " reloads " )
+  useEffect(() => {
+
+    // fetchFromAPI( search?part=snippet&q=selectedCategory ); wont work , selectedCategory is a var
+    fetchFromAPI( `search?part=snippet&q=${SelectedCategory}` ) // power of template string
+      .then( (data) => SetVedios(data.items) ) // this will run when the promise is returned
+  }, [setSelectedCategory]);
+
+
   return (
     // Stack is the main wrapper class that will enclose both the two parts
     <Stack sx={{flexDirection: { x: 'column', md: 'row'}}}>
@@ -40,7 +57,7 @@ const Feed = () => {
       {/* This box is just like a div , it creates the grey divider 
       between the sidebar and main vedio feed*/}
       <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "1px solid #3d3d3d", px: { sx: 0, md: 2 } }}>
-        <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+        <Sidebar selectedCategory={SelectedCategory} setSelectedCategory={setSelectedCategory} />
         
         {/* Typography is just a component for all text element - p , h1 .. h6  , etc */}
         <Typography className="copyright" variant="body2" sx={{ mt: 1.5, color: "#fff", }}>
@@ -52,10 +69,10 @@ const Feed = () => {
       <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
         <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
           {/* Displaying New vedios or Coding vedios etc */}
-          {selectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
+          {SelectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
         </Typography>
 
-        < Vedios vedios={[]} />
+        < Vedios vedios={vedios} />
 
       </Box>
 
