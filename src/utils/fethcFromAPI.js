@@ -15,11 +15,10 @@ const options = {
     }
 };
 
+//  IT'S THIS EASY TO CALL AN API
 export const fetchFromAPI = async (url) => {
     // const response = await axios.get(`${BASE_URL}/${url}`, options); BUT we can destructure it in one line
 
     const { data } = await axios.get(`${BASE_URL}/${url}`, options);
     return data;
-}
-
-  
+}  

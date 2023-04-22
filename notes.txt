@@ -1,0 +1,6 @@
+PROGRESS LOGS ------------------------------------------------------------------->
+
+1)  Succesfully calls the API and we are able to get array of 50 vedios for each 
+    section in the sidebar. ()
+
+2)  Now we have to display each of the Vid in the array in the main area (Vedios component)
