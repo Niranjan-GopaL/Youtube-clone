@@ -13,3 +13,5 @@ PROGRESS LOGS ------------------------------------------------------------------
 
     Start Working on VideoCar.jsx--- 
 
+
+2)  Now we have to display each of the Vid in the array in the main area (Vedios component)

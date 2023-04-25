@@ -1,7 +1,6 @@
 // Exporting all the components from a single file so that
 // it can be imported in one line
 
-
 export {default as Navbar} from './Navbar';
 export {default as Feed} from './Feed';
 export {default as ChannelDetail} from './ChannelDetail';

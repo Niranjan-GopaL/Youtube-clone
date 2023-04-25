@@ -55,7 +55,7 @@ const Feed = () => {
     <Stack sx={{flexDirection: { x: 'column', md: 'row'}}}>
       {/* px means padding horizontal , 0 in small and 3 in medium screen */}
       {/* This box is just like a div , it creates the grey divider 
-      between the sidebar and main vedio feed*/}
+      between the sidebar and main Video feed*/}
       <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "1px solid #3d3d3d", px: { sx: 0, md: 2 } }}>
         <Sidebar selectedCategory={SelectedCategory} setSelectedCategory={setSelectedCategory} />
         

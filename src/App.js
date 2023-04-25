@@ -22,6 +22,7 @@ import {VideoDetail,SearchFeed, Navbar, Feed, ChannelDetail} from './components'
 
     
 const App = () => (
+  
     <BrowserRouter>
       <Box sx= {{backgroundColor: '#000'}}> 
 
@@ -39,7 +40,7 @@ const App = () => (
       
       </Box>
     </BrowserRouter>
-);
+); 
 
 
 export default App
