@@ -1,0 +1,15 @@
+PROGRESS LOGS --------------------------------------------------------------------------------------------------------
+
+1)  We can succesfully call an array of 50 vedios for every option in Sidebar
+
+2) Designing Vedios.jsx
+
+    VedioCard.jsx    
+    ChannelCard.jsx
+    Loader.jsx
+
+    (Now you have a working site, All the typos and bugs are fixed, all vite attempts are reverted )
+
+
+    Start Working on VideoCar.jsx--- 
+

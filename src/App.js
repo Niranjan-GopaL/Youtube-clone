@@ -18,7 +18,7 @@ import Navbar from './components/Navbar';
 
 // But it would have cluttered the code so we have A index.js file in components folder and 
 //export all the above from that file and import all the components here IN ONE LINE
-import {VedioDetail,SearchFeed, Navbar, Feed, ChannelDetail} from './components';
+import {VideoDetail,SearchFeed, Navbar, Feed, ChannelDetail} from './components';
 
     
 const App = () => (
@@ -32,7 +32,7 @@ const App = () => (
         <Route path="/" exact element={<Feed />} />
         {/* Means if we go to /vedio/123123 We are gonna go to the page 
             with that id here 123123 */}
-        <Route path='/vedio/:id' element={<VedioDetail />} />
+        <Route path='/vedio/:id' element={<VideoDetail />} />
         <Route path='/channel/:id' element={<ChannelDetail />} />
         <Route path='/search/:searchTerm' element={<SearchFeed />} />
       </Routes>

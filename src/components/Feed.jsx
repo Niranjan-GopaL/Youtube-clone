@@ -1,11 +1,11 @@
-// Feed is going to compose of two parts : 1-> the main vedio feed (all the vedios in home page)
+// Feed is going to compose of two parts : 1-> the main vedio feed (all the videos in home page)
 // 2 -> The sidebar ( all subscribers etc )
 
 import {useState , useEffect} from 'react'
 import {Box, Stack, Typography} from '@mui/material'
 
 
-import {Sidebar,Vedios} from './'
+import {Sidebar,Videos} from './'
 import { fetchFromAPI } from '../utils/fethcFromAPI'
 
 /*
@@ -17,7 +17,7 @@ this makes the Stack to be displayed row-wise normally ()
 AND on medium (md) screen OR HIGHER, it'll be displayed in ONE COLUMN 
 
 i.e on mobiles all vedio are one after other , 
-on desktop there will be a row with 3 vedios
+on desktop there will be a row with 3 videos
 */
 
 /*
@@ -38,7 +38,7 @@ const Feed = () => {
 
   // const [feed, setFeed] = useState([]); how to use useState()
   const [SelectedCategory, setSelectedCategory ] = useState('New');
-  const [ vedios , SetVedios ] = useState([]);
+  const [ videos , Setvideos ] = useState([]);
 
 
   // useEffect is a live cycle hook that will run everytime the component is re-rendered. ( " reloads " )
@@ -46,7 +46,7 @@ const Feed = () => {
 
     // fetchFromAPI( search?part=snippet&q=selectedCategory ); wont work , selectedCategory is a var
     fetchFromAPI( `search?part=snippet&q=${SelectedCategory}` ) // power of template string
-      .then( (data) => SetVedios(data.items) ) // this will run when the promise is returned
+      .then( (data) => Setvideos(data.items) ) // this will run when the promise is returned
   }, [setSelectedCategory]);
 
 
@@ -68,11 +68,11 @@ const Feed = () => {
 
       <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
         <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
-          {/* Displaying New vedios or Coding vedios etc */}
+          {/* Displaying New videos or Coding videos etc */}
           {SelectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
         </Typography>
 
-        < Vedios vedios={vedios} />
+        < Videos videos={videos} />
 
       </Box>
 
