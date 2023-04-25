@@ -1,11 +1,11 @@
-// Feed is going to compose of two parts : 1-> the main vedio feed (all the vedios in home page)
+// Feed is going to compose of two parts : 1-> the main Video feed (all the Videos in home page)
 // 2 -> The sidebar ( all subscribers etc )
 
 import {useState , useEffect} from 'react'
 import {Box, Stack, Typography} from '@mui/material'
 
 
-import {Sidebar,Vedios} from './'
+import {Sidebar,Videos} from './'
 import { fetchFromAPI } from '../utils/fethcFromAPI'
 
 /*
@@ -16,8 +16,8 @@ flexDirection: {
 this makes the Stack to be displayed row-wise normally ()
 AND on medium (md) screen OR HIGHER, it'll be displayed in ONE COLUMN 
 
-i.e on mobiles all vedio are one after other , 
-on desktop there will be a row with 3 vedios
+i.e on mobiles all Video are one after other , 
+on desktop there will be a row with 3 Videos
 */
 
 /*
@@ -38,7 +38,7 @@ const Feed = () => {
 
   // const [feed, setFeed] = useState([]); how to use useState()
   const [SelectedCategory, setSelectedCategory ] = useState('New');
-  const [ vedios , SetVedios ] = useState([]);
+  const [ Videos , SetVideos ] = useState([]);
 
 
   // useEffect is a live cycle hook that will run everytime the component is re-rendered. ( " reloads " )
@@ -46,7 +46,7 @@ const Feed = () => {
 
     // fetchFromAPI( search?part=snippet&q=selectedCategory ); wont work , selectedCategory is a var
     fetchFromAPI( `search?part=snippet&q=${SelectedCategory}` ) // power of template string
-      .then( (data) => SetVedios(data.items) ) // this will run when the promise is returned
+      .then( (data) => SetVideos(data.items) ) // this will run when the promise is returned
   }, [setSelectedCategory]);
 
 
@@ -55,7 +55,7 @@ const Feed = () => {
     <Stack sx={{flexDirection: { x: 'column', md: 'row'}}}>
       {/* px means padding horizontal , 0 in small and 3 in medium screen */}
       {/* This box is just like a div , it creates the grey divider 
-      between the sidebar and main vedio feed*/}
+      between the sidebar and main Video feed*/}
       <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "1px solid #3d3d3d", px: { sx: 0, md: 2 } }}>
         <Sidebar selectedCategory={SelectedCategory} setSelectedCategory={setSelectedCategory} />
         
@@ -68,11 +68,11 @@ const Feed = () => {
 
       <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
         <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
-          {/* Displaying New vedios or Coding vedios etc */}
+          {/* Displaying New Videos or Coding Videos etc */}
           {SelectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
         </Typography>
 
-        < Vedios vedios={vedios} />
+        < Videos Videos={Videos} />
 
       </Box>
 
